@@ -1,10 +1,12 @@
-## Curso POO Javascript e Typescript
+<h1 align="center"> Curso POO Javascript e Typescript</h1>
 
-* Curso de Programação orientada a objetos com Javascript e Typescript
-* Udemy - Mateus Battisti
+<p align="center">Curso de Programação orientada a objetos com Javascript e Typescript</p>
+<p align="center">Udemy - Matheus Battisti</p>
 
-**https://www.udemy.com/course/orientacao-a-objetos-com-javascript-projetos-e-typescript/**
+<br>
+<p align="center"><strong><a href="https://www.udemy.com/share/103aXV3@PhrcNyGiv6R8LES3uBzvGuSS9YSRn_2tpA-3yBS13VskEK6Q8iL718NrwdrwyqiOwA==/" target="_blank">Link do Curso</a></strong></p>
+<br>
 
-- Conclusão: 35%
+<p align="center"><strong>Conclusão: 35%</strong> </p>
 
-:rocket:
+<div align="center"> :rocket: </div>
