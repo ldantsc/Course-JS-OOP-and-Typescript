@@ -7,6 +7,6 @@
 <p align="center"><strong><a href="https://www.udemy.com/share/103aXV3@PhrcNyGiv6R8LES3uBzvGuSS9YSRn_2tpA-3yBS13VskEK6Q8iL718NrwdrwyqiOwA==/" target="_blank">Link do Curso</a></strong></p>
 <br>
 
-<p align="center"><strong>Conclusão: 45%</strong></p>
+<p align="center"><strong>Conclusão: 55%</strong></p>
 
 <div align="center"> :rocket: </div>
