@@ -156,7 +156,7 @@
 
 - *https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/substr*
 
--*https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test*
+- *https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test*
 
 *"FAZ PARTE DO OBJETO RegExp()" - O método test() executa uma busca por uma correspondência entre uma expressão regular e uma string. Retorna true ou false.*
 
