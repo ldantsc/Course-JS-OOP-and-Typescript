@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* geral */
+body, h1, p, span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(63, 89, 112);
+}
+
+h1 {
+    text-align: center;
+    margin: 30px 0;
+    color: #fff;
+}
+
+/*calculadora*/
+
+#calculator {
+    background-color: #1b4b5a;
+    width: 400px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+#screen-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 258px;   
+    height: 70px;
+    border: 1px solid #2d758b;
+    text-align: right;
+    /*regras css para quantidade de valor alta
+    não transbordar do container*/
+    box-sizing: border-box;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#upper-number {
+    float: right;
+    color: #fff;
+}
+
+#result-number {
+    color: #fff;
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 22px;
+    clear: both;
+}
+
+.btn-container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.btn {
+    width: 50px;
+    height: 50px;
+    margin: 0 7.5px;
+    line-height: 50px;
+    color: #fff;
+    background-color: #2d758b;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #3f1d6b;
+}
+
+#ac-btn {
+    margin-left: -200px;
+}
+
+#division-btn {
+    position: absolute;
+    right: 14px;
+}
+
+#zero-btn, #equals-btn {
+    width: 120px;
+}
+
+#ac-btn, #division-btn, #minus-btn,#plus-btn, #multiplication-btn,#divison-btn, #zero-btn, #equals-btn {
+    font-weight: 300;
+    font-size: 20px;
+}
