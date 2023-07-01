@@ -27,6 +27,28 @@ class Calculator {
 
     }
 
+    // resolve a operação
+    resolution() {
+       // explode uma string em um array 
+        let upperValueArray = (this.upperValue.textContent).split(" ")       
+        let result = 0;
+        
+        for(let i = 0; i <= upperValueArray.length; i++){
+            
+            //percorrer o array
+         let actualItem = upperValueArray[i];
+            
+            // ADIÇÃO
+         if(actualItem == "+") {
+             result = parseFloat(upperValueArray[i - 1]) + parseFloat(upperValueArray[i + 1])
+         }
+ 
+        }
+
+        this.upperValue.textContent = result;
+        this.resultValue.textContent = result;
+    }
+
     btnPress() {
         // textContent pega o texto dentro do botão, guardando na variavel input 
         let input = this.textContent;
@@ -40,6 +62,10 @@ class Calculator {
 
             //invocando o método clearValues -- Limpar o display 
             calc.clearValues();
+
+        } else if(input == '=') {
+
+            calc.resolution()
 
         } else {
         //checa se precisa adicionar ou não (para tratar os simbolos que estão sendo adicionados no input)        

@@ -4,7 +4,7 @@
 
 - Html adicionando id's diferentes para executar botoes individualmente no JS, números será usado classes pois com o textContent pegamos o valor/conteudo dentro da tag de cada botão
 
-- Estilização no CSS (Atento ao uppernumber, pois com a estilização dele não faz os números ele sair para fora da div)
+- Estilização no CSS (Atento ao uppernumber, pois temos que tratar a estilização dele para não fazer os números sair fora da div)
 
 ## Lógica resumida
 
@@ -154,8 +154,9 @@
 
 *** Se tiver adicionando um sinal e o último digito (substr) for um sinal então será executada esse funcão e não executar essa ação ***
 
-*https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/substr*
-*https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test*
+- *https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/substr*
+
+-*https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test*
 
 *"FAZ PARTE DO OBJETO RegExp()" - O método test() executa uma busca por uma correspondência entre uma expressão regular e uma string. Retorna true ou false.*
 
@@ -333,6 +334,108 @@
         }
 
 ```
+
+- Criar o método resolution() (está sendo criado abaixo do método checkLastDigit)
+
+- Criar uma variável e passando o valor/text do upperValue e utilizando o método split() para transformar em array e guardar nessa variável
+
+```javascript
+
+    // resolve a operação
+    resolution() {
+       // explode uma string em um array 
+       let upperValueArray = (this.upperValue.textContent).split(" ")
+       console.log(upperValueArry) // testando a variável
+    }
+
+```
+
+- Agora precisamos fazer um looping para percorrer os valores do Array
+
+```javascript
+
+    resolution() {
+       let upperValueArray = (this.upperValue.textContent).split(" ")
+       
+       // enquanto a variavel i for menor ou igual ao comprimento do array upperValueArray, i++
+
+       for(let i = 0; i <= upperValueArray.length; i++) {
+
+       }
+    }
+
+```
+
+- Mas agora precisamos da variavel de resultado da operação, iniciaremos ela com zero
+
+```javascript
+
+    resolution() {
+       let upperValueArray = (this.upperValue.textContent).split(" ")
+
+       let result = 0; // guarda o resultado
+       
+       for(let i = 0; i <= upperValueArray.length; i++){
+
+       }
+    }
+
+```
+- Operação de soma...
+
+- Criar variavel para o upperValueArray na chave i (vai estar percorrendo o array)
+
+- Adicionar a lógica if...
+
+*** Se o valor atual do item da array for igual '+', pegue o elemento anterior do Array e soma com o elemento posterior do Array e guardamos o resultado da nossa soma na variavel de resultado (result)  ***
+
+```javascript
+
+    resolution() {
+       let upperValueArray = (this.upperValue.textContent).split(" ")
+
+       let result = 0;
+       
+       for(let i = 0; i <= upperValueArray.length; i++){
+
+        let actualItem = upperValueArray[i];
+
+        if(actualItem == "+") {
+            result = upperValueArray[i - 1] + upperValueArray[i + 1]
+        }
+
+       }
+    }
+
+```
+
+- Agora vamos imprimir o resultado no display
+
+- E também precisa passar os valores do Array para float number
+
+
+```javascript
+
+    resolution() {
+       let upperValueArray = (this.upperValue.textContent).split(" ")
+
+       let result = 0;
+       
+       for(let i = 0; i <= upperValueArray.length; i++){
+
+        let actualItem = upperValueArray[i];
+
+        if(actualItem == "+") {
+            result = result = parseFloat(upperValueArray[i - 1]) + parseFloat(upperValueArray[i + 1])
+        }
+    
+        this.upperValue.textContent = result;
+        this.resultValue.textContent = result;
+       }
+    }
+
+```
+## Criando mais métodos de outras operações
 
 
 
