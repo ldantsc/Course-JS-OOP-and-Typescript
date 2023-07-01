@@ -61,17 +61,48 @@ class Calculator {
         
         for(let i = 0; i <= upperValueArray.length; i++){
             
+        let operation = 0;
             //percorrer o array
-         let actualItem = upperValueArray[i];
+        let actualItem = upperValueArray[i];
             
-            // ADIÇÃO
-         if(actualItem == "+") {
-             result = parseFloat(upperValueArray[i - 1]) + parseFloat(upperValueArray[i + 1])
-         }
+        // Faz a multiplicação
+        if(actualItem == "x") {
+             result = calc.multiplication(upperValueArray[i-1], upperValueArray[i+1])
+             operation = 1;
+        //Faz a divisão
+        } else if(actualItem == "/") {
+            result = calc.division(upperValueArray[i-1], upperValueArray[i+1])
+            operation = 1;
+        // checa se o array ainda tem multiplicação e divisão a ser feita
+        }  else if(!upperValueArray.includes('x') && !upperValueArray.includes('/')) {
+               //soma e subtração
+        //Faz a soma
+        if(actualItem == "+") {
+            result = calc.sum(upperValueArray[i-1], upperValueArray[i+1])
+            operation = 1;
+        //Faz a subtração
+        } else if(actualItem == "-") {
+            result = calc.subtraction(upperValueArray[i-1], upperValueArray[i+1])
+            operation = 1;
+        }
+    }
 
-         if(result) {
+
+
+        // atualiza valores do array para a proxima interação
+        if(operation) {
+            //indice anterior no resultado da operação
+            upperValueArray[i - 1] = result
+            // remove os itens já utilizados para a operação
+            upperValueArray.splice(i, 2);
+            //atualizar o valor do índice
+            i = 0;
+        }
+
+
+        if(result) {
             calc.reset = 1;
-         }
+        }
  
         }
         //atualizar os totais
@@ -120,8 +151,10 @@ class Calculator {
         
         // tratando o upperValue
         if(upperValue == 0) {
-            // upperValue vai ser igual ao input
-            calc.upperValue.textContent = input;
+            if(reg.test(input)){
+                // upperValue vai ser igual ao input
+                calc.upperValue.textContent = input;
+            }
         } else {
             calc.upperValue.textContent += input;
         }
