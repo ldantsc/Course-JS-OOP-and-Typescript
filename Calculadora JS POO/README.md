@@ -435,8 +435,145 @@
     }
 
 ```
-## Criando mais métodos de outras operações
+## Criando mais métodos de outras operações..
 
+- Corrigir o reset do display após uma operação
+
+*** Se tem result (se o resultado estiver preenchido) vamos dizer que calc.reset vai ser igual a 1, agora incrementando o reset para operações ***
+
+```javascript
+
+    resolution() {
+       let upperValueArray = (this.upperValue.textContent).split(" ")
+
+       let result = 0;
+       
+       for(let i = 0; i <= upperValueArray.length; i++){
+
+        let actualItem = upperValueArray[i];
+
+        if(actualItem == "+") {
+            result = result = parseFloat(upperValueArray[i - 1]) + parseFloat(upperValueArray[i + 1])
+        }
+    
+        this.upperValue.textContent = result;
+        this.resultValue.textContent = result;
+       }
+       if(result) {
+        calc.reset = 1
+       }
+    }
+
+```
+
+- Agora acessamos o btnPress() e verificar se tem que resetar a operação
+
+```js
+
+ btnPress() {
+        let input = this.textContent;
+        let upperValue = calc.upperValue.textContent;
+        var reg = new RegExp('^\\d+$');
+        
+        if(calc.reset) {
+            upperValue = '0';
+        }
+//...
+}
+
+```
+- Tem um outro problema, após a operação feita, e ser resetada, o reset ainda vai estar true, não conseguimos digitar os numeros após o reset
+
+- Criar uma outra instrução para resetar o reset(SIM É ISSO MSM KK) colocando ele para false de novo para conseguir utilizar o btnPress()
+
+```js
+
+ btnPress() {
+        let input = this.textContent;
+        let upperValue = calc.upperValue.textContent;
+        var reg = new RegExp('^\\d+$');
+        
+        // se precisar resetar, limpa o display
+        if(calc.reset) {
+            upperValue = '0';
+        }
+
+        //limpa a prop de reset
+        calc.reset = 0;
+//...
+}
+
+```
+
+- Mais um problema, corrigir um bug quando digitado um operador primeiro
+
+- Colocamos mais um check
+
+*** add se o reg.test se é um numero. Então se for um número e o reset estiver preenchido, reseta o upperValue ***
+
+```javascript 
+
+        if(calc.reset && reg.test(input)) {
+            upperValue = '0';
+        }
+
+```
+
+- Abstrair para deixar o código mais limpo:
+
+```javascript
+
+        this.upperValue.textContent = result;
+        this.resultValue.textContent = result;
+
+```
+
+- Criando um método... 
+
+```javascript
+
+    //atualiza valores
+  refreshValues(total) {
+        this.upperValue.textContent = total;
+        this.resultValue.textContent = total;
+  }
+
+```
+
+- Invocando...
+
+```javascript
+
+//atualizar os totais
+calc.refreshValues(result)
+
+```
+
+- Criar os métodos para cada tipo de operação
+
+```javascript
+
+    //MÉTODO ADIÇÃO
+    sum(n1, n2) {
+        return parseFloat(n1) + parseFloat(n2)
+    }
+
+    //MÉTODO SUBTRAÇÃO
+    subtraction(n1, n2) {
+        return parseFloat(n1) - parseFloat(n2)
+    }
+
+    //MÉTODO MULTIPLIÇÃO
+    multiplication(n1, n2) {
+        return parseFloat(n1) * parseFloat(n2)
+    }
+
+    //MÉTODO DIVISÃO
+    division(n1, n2) {
+        return parseFloat(n1) / parseFloat(n2)
+    }
+
+```
 
 
 

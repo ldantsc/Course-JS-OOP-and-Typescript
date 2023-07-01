@@ -27,6 +27,32 @@ class Calculator {
 
     }
 
+    //MÉTODO ADIÇÃO
+    sum(n1, n2) {
+        return parseFloat(n1) + parseFloat(n2)
+    }
+
+    //MÉTODO SUBTRAÇÃO
+    subtraction(n1, n2) {
+        return parseFloat(n1) - parseFloat(n2)
+    }
+
+    //MÉTODO MULTIPLIÇÃO
+    multiplication(n1, n2) {
+        return parseFloat(n1) * parseFloat(n2)
+    }
+
+    //MÉTODO DIVISÃO
+    division(n1, n2) {
+        return parseFloat(n1) / parseFloat(n2)
+    }
+
+    //atualiza valores
+    refreshValues(total) {
+        this.upperValue.textContent = total;
+        this.resultValue.textContent = total;
+    }
+
     // resolve a operação
     resolution() {
        // explode uma string em um array 
@@ -42,11 +68,15 @@ class Calculator {
          if(actualItem == "+") {
              result = parseFloat(upperValueArray[i - 1]) + parseFloat(upperValueArray[i + 1])
          }
+
+         if(result) {
+            calc.reset = 1;
+         }
  
         }
+        //atualizar os totais
+        calc.refreshValues(result)
 
-        this.upperValue.textContent = result;
-        this.resultValue.textContent = result;
     }
 
     btnPress() {
@@ -57,6 +87,14 @@ class Calculator {
         // verificar se tem só numeros | expressão regular
         var reg = new RegExp('^\\d+$');
         
+        //resetar o display após a operação feita
+        if(calc.reset && reg.test(input)) {
+            upperValue = "0";
+        }
+
+        //limpa a prop de reset
+        calc.reset = 0;
+
         // checar antes se o input = AC para limpar a tela 
         if (input === "AC") {
 
