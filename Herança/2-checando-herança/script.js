@@ -43,5 +43,14 @@ console.log(trembala instanceof Trem) // true
 console.log(ferrari instanceof Carro) // true
 
 // true tbm porque herdou métodos e propriedades do Veiculo()
+//segundo grau da herança
 console.log(trembala instanceof Veiculo) // true
 console.log(ferrari instanceof Veiculo) // true
+
+//Quando criado a Classe, automaticamente ela herdou de Object 
+console.log(trembala instanceof Object) // true
+console.log(ferrari instanceof Object) // true
+
+// uma não herda as propriedades e métodos da outra, no caso criou-se uma bifurcação por conta do prototype chain
+console.log(trembala instanceof Carro) // false
+console.log(ferrari instanceof Trem) // false
